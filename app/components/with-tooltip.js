@@ -12,6 +12,10 @@ const component = Ember.Component.extend({
 
 			this.$().append(tooltip)
 		}
+	},
+
+	click() {
+		this.sendAction()
 	}
 })
 
