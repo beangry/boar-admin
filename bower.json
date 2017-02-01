@@ -1,0 +1,6 @@
+{
+  "name": "boar-admin",
+  "dependencies": {
+    "pace": "^1.0.2"
+  }
+}

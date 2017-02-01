@@ -1,0 +1,15 @@
+$primary: #222;
+$accent: #111;
+
+$color: #222;
+$colorLight: lighten($color, 40%);
+$colorDark: darken($color, 10%);
+
+$background: #FFF;
+$gray: darken($background, 2%);
+$border: darken($background, 4%);
+$shadow: rgba(0, 0, 0, 0.1);
+$overlay: rgba(0, 0, 0, 0.5);
+
+$success: #4CAF50;
+$error: #F44336;
