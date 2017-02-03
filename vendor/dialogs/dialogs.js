@@ -54,7 +54,7 @@ class Dialog {
 									let key = $(input).data('key')
 									let value = $(input).val().trim()
 
-									promptValue[key].value = value
+									promptValue[key] = value
 								})
 
 								resolve(promptValue)
@@ -80,7 +80,11 @@ class Dialog {
 				if ($(e.target).hasClass('overlay')) {
 					overlay.fadeOut('fast', () => overlay.remove())
 				}
-			}).hide().appendTo('body').fadeIn('fast', () => dialog.find('input').focus())
+			}).hide().appendTo('body').fadeIn('fast', () => {
+				if (type === 'prompt') {
+					dialog.find('input').get(0).focus()
+				}
+			})
 		})
 	}
 }
