@@ -129,8 +129,18 @@ table {
 
 	tbody {
 		tr {
+			transition: 100ms;
+
+			&:hover {
+				background: $gray;
+			}
+
 			&:not(:first-child) {
 				border-top: 1px solid $border;
+			}
+
+			td {
+				width: 20em;
 			}
 		}
 	}

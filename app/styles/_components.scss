@@ -93,7 +93,7 @@
 		border-radius: 0.25em;
 		color: $background;
 		content: attr(data-tooltip);
-		font-size: 0.875em;
+		font-size: 0.85em;
 		opacity: 0;
 		padding: 0.5em;
 		position: absolute;
@@ -183,6 +183,60 @@
 			pointer-events: none;
 			position: absolute;
 			width: 0;
+		}
+	}
+}
+
+.tools {
+	a {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 50%;
+		cursor: pointer;
+		height: 3em;
+		opacity: 0.25;
+		transition: 200ms;
+		width: 3em;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.add {
+			background-image: url('icons/add.png');
+		}
+	}
+}
+
+.controls {
+	padding: 0;
+	width: 1em;
+
+	ul {
+		display: flex;
+		justify-content: flex-end;
+
+		li {
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 50%;
+			cursor: pointer;
+			height: 3em;
+			opacity: 0.25;
+			transition: 200ms;
+			width: 3em;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&.add {
+				background-image: url('icons/add.png');
+			}
+
+			&.edit {
+				background-image: url('icons/edit.png');
+			}
 		}
 	}
 }
