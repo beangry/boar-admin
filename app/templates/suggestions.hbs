@@ -1,0 +1,35 @@
+<main>
+	<section class="data">
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Tag</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each model as |suggestion|}}
+						<tr>
+							<td>{{suggestion.tag}}</td>
+							<td>{{suggestion.description}}</td>
+							<td class="controls">
+								<ul>
+									{{with-tooltip "Add" "left" true class="add" tagName="li" action=(action 'addTag' suggestion)}}
+									{{with-tooltip "Remove" "left" true class="remove" tagName="li" action=(action 'removeSuggestion' suggestion)}}
+								</ul>
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{infinity-loader infinityModel=model scrollable=".data"}}
+		</div>
+		<aside>
+			{{#each types as |type|}}
+				<p>{{type.order}} {{type.type}}</p>
+			{{/each}}
+		</aside>
+	</section>
+</main>
