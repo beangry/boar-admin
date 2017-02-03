@@ -1,0 +1,42 @@
+<main>
+	<header>
+		<nav class="tools">
+			{{with-tooltip "Add" "bottom" true class="add" tagName="a" action='addTag'}}
+		</nav>
+	</header>
+	<section class="data">
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Slug</th>
+						<th>Type</th>
+						<th>Order</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each model as |tag|}}
+						<tr>
+							<td>{{tag.name}}</td>
+							<td>{{tag.id}}</td>
+							<td>{{tag.type}}</td>
+							<td>{{tag.order}}</td>
+							<td class="controls">
+								<ul>
+									{{with-tooltip "Edit" "left" true class="edit" tagName="li" action=(action 'editTag' tag)}}
+								</ul>
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<aside>
+			{{#each types as |type|}}
+				<p>{{type.order}} {{type.type}}</p>
+			{{/each}}
+		</aside>
+	</section>
+</main>
