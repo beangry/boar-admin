@@ -20,7 +20,7 @@
 		}
 
 		&.posts {
-			background-image: url('icons/feed.png');
+			background-image: url('icons/posts.png');
 		}
 
 		&.tags {
@@ -243,4 +243,8 @@
 			}
 		}
 	}
+}
+
+.chart {
+	margin: 1em 0;
 }

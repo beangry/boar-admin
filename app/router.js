@@ -10,6 +10,7 @@ Router.map(function() {
 	this.route('login')
 	this.route('logout')
 
+	this.route('posts')
 	this.route('tags')
 	this.route('suggestions')
 	this.route('reports')
