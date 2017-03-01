@@ -16,8 +16,8 @@
 							<td>{{suggestion.description}}</td>
 							<td class="controls">
 								<ul>
-									{{with-tooltip "Add" "left" true class="add" tagName="li" action=(action 'addTag' suggestion)}}
-									{{with-tooltip "Remove" "left" true class="remove" tagName="li" action=(action 'removeSuggestion' suggestion)}}
+									{{with-tooltip "Add" "left" true class="add" tagName="li" action=(action 'create' suggestion)}}
+									{{with-tooltip "Remove" "left" true class="remove" tagName="li" action=(action 'remove' suggestion)}}
 								</ul>
 							</td>
 						</tr>

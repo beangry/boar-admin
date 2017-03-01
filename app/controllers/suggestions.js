@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 	}),
 
 	actions: {
-		addTag(suggestion) {
+		create(suggestion) {
 			let fields = {
 				name: {
 					label: `Name`,
@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
 					}).save().then()
 				})
 		},
-		removeSuggestion(suggestion) {
+		remove(suggestion) {
 			Dialog.confirm(`Are you sure?`)
 				.then(() => suggestion.destroyRecord())
 		}
