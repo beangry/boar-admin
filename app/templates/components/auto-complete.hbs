@@ -1,0 +1,10 @@
+{{input type="text" value=value placeholder=placeholder required=required}}
+<section class={{if open 'open'}}>
+	<ul>
+		{{#each results as |item|}}
+			{{yield item}}
+		{{else}}
+			<li>No matches found</li>
+		{{/each}}
+	</ul>
+</section>
