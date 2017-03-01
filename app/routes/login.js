@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 	auth: Ember.inject.service(),
 	storage: Ember.inject.service(),
 
-	titleToken: 'Login',
+	titleToken: `Login`,
 
 	actions: {
 		login() {
