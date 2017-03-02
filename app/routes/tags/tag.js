@@ -23,6 +23,8 @@ export default Ember.Route.extend({
 
 	resetController(controller, isExiting) {
 		if (isExiting) {
+			controller.set('message', null)
+
 			controller.get('model').rollbackAttributes()
 		}
 	}
