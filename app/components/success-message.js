@@ -10,9 +10,11 @@ const component = Ember.Component.extend({
 			this.$().addClass('visible').text(this.message)
 
 			Ember.run.later(() => {
-				this.$().removeClass('visible').text('')
+				if (!this.isDestroying && !this.isDestroyed) {
+					this.$().removeClass('visible').text('')
 
-				this.set('message', null)
+					this.set('message', null)
+				}
 			}, this.delay)
 		}
 	})
