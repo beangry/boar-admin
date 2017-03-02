@@ -17,12 +17,13 @@ export default Ember.Route.extend({
 
 		controller.setProperties({
 			busy: false,
-			error: null,
-			message: null
+			error: null
 		})
 	},
 
-	deactivate() {
-		this.get('controller.model').rollbackAttributes()
+	resetController(controller, isExiting) {
+		if (isExiting) {
+			controller.get('model').rollbackAttributes()
+		}
 	}
 })
