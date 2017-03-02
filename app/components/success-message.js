@@ -5,6 +5,10 @@ const component = Ember.Component.extend({
 
 	delay: 5000,
 
+	didInsertElement() {
+		this.messageChanged()
+	},
+
 	messageChanged: Ember.observer('message', function() {
 		if (this.message) {
 			this.$().addClass('visible').text(this.message)

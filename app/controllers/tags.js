@@ -4,13 +4,21 @@ import DS from 'ember-data'
 export default Ember.Controller.extend({
 	ajax: Ember.inject.service(),
 
-	queryParams: ['tag'],
+	queryParams: ['tag', 'hello'],
 
 	tagChanged: Ember.observer('tag', function() {
 		if (this.tag) {
 			this.setProperties({
 				name: this.tag,
 				tag: undefined
+			})
+		}
+	}),
+	helloChanged: Ember.observer('hello', function() {
+		if (this.hello) {
+			this.setProperties({
+				message: this.hello,
+				hello: undefined
 			})
 		}
 	}),
@@ -57,7 +65,11 @@ export default Ember.Controller.extend({
 							related: null
 						})
 
-						this.transitionToRoute('tags.tag', tag)
+						this.transitionToRoute('tags.tag', tag, {
+							queryParams: {
+								hello: `Tag created`
+							}
+						})
 					})
 					.catch(error => {
 						this.setProperties({
