@@ -7,6 +7,13 @@ export default Ember.Route.extend({
 
 	titleToken: `Login`,
 
+	setupController(controller) {
+		controller.setProperties({
+			busy: false,
+			error: null
+		})
+	},
+
 	actions: {
 		login() {
 			let controller = this.get('controller')
