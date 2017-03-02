@@ -14,6 +14,12 @@ export default Ember.Route.extend({
 		this.set('titleToken', titleToken)
 
 		this._super(...arguments)
+
+		controller.setProperties({
+			busy: false,
+			error: null,
+			message: null
+		})
 	},
 
 	deactivate() {
