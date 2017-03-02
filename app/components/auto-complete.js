@@ -8,14 +8,6 @@ const component = Ember.Component.extend({
 		this.$('input').on('blur', () => this.set('open', false))
 	},
 
-	click(e) {
-		let target = Ember.$(e.target)
-
-		if (target.prop('tagName').toLowerCase() === 'li') {
-			// this.set('open', false)
-		}
-	},
-
 	results: Ember.computed('content', 'content.[]', 'value', function() {
 		if (!this.content) {
 			throw new Error(`Content cannot be null`)
