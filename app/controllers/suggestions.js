@@ -2,14 +2,6 @@ import Ember from 'ember'
 import DS from 'ember-data'
 
 export default Ember.Controller.extend({
-	ajax: Ember.inject.service(),
-
-	types: Ember.computed(function() {
-		return DS.PromiseArray.create({
-			promise: this.get('ajax').request('/tags/data')
-		})
-	}),
-
 	actions: {
 		create(suggestion) {
 			let fields = {
