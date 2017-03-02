@@ -4,6 +4,17 @@ import DS from 'ember-data'
 export default Ember.Controller.extend({
 	ajax: Ember.inject.service(),
 
+	queryParams: ['tag'],
+
+	tagChanged: Ember.observer('tag', function() {
+		if (this.tag) {
+			this.setProperties({
+				name: this.tag,
+				tag: undefined
+			})
+		}
+	}),
+
 	tags: Ember.computed.sort('model', 'sort'),
 	sort: ['order:asc', 'name:asc'],
 

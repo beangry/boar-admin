@@ -16,7 +16,7 @@
 							<td>{{suggestion.description}}</td>
 							<td class="controls">
 								<ul>
-									{{with-tooltip "Add" "left" true class="add" tagName="li" action=(action 'create' suggestion)}}
+									{{link-to '' 'tags.new' (query-params tag=suggestion.tag) class="add" tagName="li" data-tooltip="Add" data-tooltip-direction="left"}}
 									{{with-tooltip "Remove" "left" true class="remove" tagName="li" action=(action 'remove' suggestion)}}
 								</ul>
 							</td>
