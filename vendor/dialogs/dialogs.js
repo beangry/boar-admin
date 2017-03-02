@@ -121,9 +121,11 @@ var Dialog = function() {
 							}
 						}
 
-						overlay.fadeOut('fast', function() {
-							return overlay.remove();
-						});
+						overlay.addClass('hidden')
+
+						setTimeout(function() {
+							overlay.remove();
+						}, 300);
 					}).appendTo(footer);
 				});
 
@@ -131,15 +133,17 @@ var Dialog = function() {
 
 				overlay.append(dialog).on('click', function(e) {
 					if ($(e.target).hasClass('overlay')) {
-						overlay.fadeOut('fast', function() {
-							return overlay.remove();
-						});
+						overlay.addClass('hidden')
+
+						setTimeout(function() {
+							overlay.remove();
+						}, 300);
 					}
-				}).hide().appendTo('body').fadeIn('fast', function() {
-					if (type === 'prompt') {
-						dialog.find('input').get(0).focus();
-					}
-				});
+				}).appendTo('body');
+
+				if (type === 'prompt') {
+					dialog.find('input').get(0).focus();
+				}
 			});
 		}
 	}]);
