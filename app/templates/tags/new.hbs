@@ -1,5 +1,5 @@
 <main class="hero">
-	<form {{action 'create' on='submit'}}>
+	<form {{action 'add' on='submit'}}>
 		{{error-message error}}
 		<label>
 			<strong>Name</strong>
@@ -26,7 +26,7 @@
 			{{textarea value=related placeholder="Related"}}
 		</label>
 		<p>
-			<button disabled={{busy}} class={{if busy 'loading'}}>Create</button>
+			<button disabled={{busy}} class={{if busy 'loading'}}>Add</button>
 		</p>
 	</form>
 </main>

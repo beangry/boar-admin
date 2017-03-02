@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
 	}),
 
 	actions: {
-		create() {
+		add() {
 			if (this.name && this.type && this.order) {
 				this.setProperties({
 					busy: true,
@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
 
 						this.transitionToRoute('tags.tag', tag, {
 							queryParams: {
-								hello: `Tag created`
+								hello: `Tag added`
 							}
 						})
 					})
