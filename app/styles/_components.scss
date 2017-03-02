@@ -329,3 +329,18 @@
 		}
 	}
 }
+
+.empty {
+	&:hover {
+		background: inherit;
+	}
+
+	td {
+		padding: 0;
+	}
+
+	div {
+		margin-top: 40vh;
+		text-align: center;
+	}
+}

@@ -16,6 +16,12 @@
 							<td>{{report.post.body}}</td>
 							<td>{{report.details}}</td>
 						</tr>
+					{{else}}
+						<tr class="empty">
+							<td colspan="3">
+								<div>No data found.</div>
+							</td>
+						</tr>
 					{{/each}}
 				</tbody>
 			</table>
