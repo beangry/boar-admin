@@ -7,6 +7,8 @@ module.exports = function(defaults) {
 		}
 	})
 
+	app.import('bower_components/chart.js/dist/Chart.min.js')
+
 	app.import('vendor/dialogs/dialogs.js')
 	app.import('vendor/dialogs/dialogs.css')
 

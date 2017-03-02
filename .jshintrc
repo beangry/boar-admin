@@ -1,5 +1,6 @@
 {
   "predef": [
+    "Chart",
     "Dialog",
     "document",
     "window",

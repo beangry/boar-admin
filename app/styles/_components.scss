@@ -259,8 +259,26 @@
 	}
 }
 
-.chart {
-	margin: 1em 0;
+.charts {
+	align-items: center;
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	section {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		&:last-child {
+			flex-basis: 20%;
+		}
+
+		.chart {
+			margin: 1em;
+		}
+	}
 }
 
 .auto-complete {
