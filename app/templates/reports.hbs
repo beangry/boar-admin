@@ -1,0 +1,25 @@
+<main>
+	<section class="data">
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th class="thin">Tag</th>
+						<th>Post</th>
+						<th>Details</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each model as |report|}}
+						<tr>
+							<td class="thin">{{report.post.tag.name}}</td>
+							<td>{{report.post.body}}</td>
+							<td>{{report.details}}</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{infinity-loader infinityModel=model scrollable=".data"}}
+		</div>
+	</section>
+</main>

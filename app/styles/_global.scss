@@ -151,6 +151,10 @@ table {
 		padding: 1em;
 		text-align: left;
 		vertical-align: middle;
+
+		&.thin {
+			width: 1em;
+		}
 	}
 
 	thead {
