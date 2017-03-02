@@ -67,15 +67,29 @@
 	}
 }
 
-.error {
+.error,
+.success {
 	background: $error;
 	color: $background;
-	margin: 1em 0;
-	padding: 1em;
+	padding: 0 1em;
+	opacity: 0;
+	transition: 300ms;
+	visibility: hidden;
 
-	&:empty {
-		display: none;
+	&.visible {
+		margin: 1em 0;
+		padding: 1em;
+		opacity: 1;
+		visibility: visible;
 	}
+}
+
+.error {
+	cursor: pointer;
+}
+
+.success {
+	background: $success;
 }
 
 .with-tooltip {
