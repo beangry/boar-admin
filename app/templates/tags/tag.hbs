@@ -24,7 +24,7 @@
 			{{textarea value=model.related placeholder="Related"}}
 		</label>
 		<p>
-			<button disabled={{busy}}>Save</button>
+			<button disabled={{busy}} class={{if busy 'loading'}}>Save</button>
 		</p>
 	</form>
 </main>

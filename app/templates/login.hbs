@@ -8,7 +8,7 @@
 			{{input type="password" value=password placeholder="Password" required=true}}
 		</label>
 		<p>
-			<button disabled={{busy}}>Login</button>
+			<button disabled={{busy}} class={{if busy 'loading'}}>Login</button>
 		</p>
 	</form>
 </main>

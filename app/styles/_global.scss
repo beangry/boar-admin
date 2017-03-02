@@ -67,6 +67,22 @@ form {
 		&:hover {
 			background: lighten($accent, 10%);
 		}
+
+		&.loading {
+			background: lighten($primary, 10%);
+			color: lighten($primary, 10%);
+			position: relative;
+
+			&:before {
+				border-left-color: $background;
+				border-top-color: $background;
+				height: 1.5em;
+				left: calc(50% - 1.5em / 2);
+				position: absolute;
+				top: calc(50% - 1.5em / 2);
+				width: 1.5em;
+			}
+		}
 	}
 
 	textarea {
