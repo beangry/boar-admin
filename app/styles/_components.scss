@@ -71,6 +71,7 @@
 .success {
 	background: $error;
 	color: $background;
+	cursor: pointer;
 	padding: 0 1em;
 	opacity: 0;
 	transition: 300ms;
@@ -82,10 +83,6 @@
 		opacity: 1;
 		visibility: visible;
 	}
-}
-
-.error {
-	cursor: pointer;
 }
 
 .success {

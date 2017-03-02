@@ -3,6 +3,10 @@ import Ember from 'ember'
 const component = Ember.Component.extend({
 	classNames: ['error'],
 
+	didInsertElement() {
+		this.messageChanged()
+	},
+
 	messageChanged: Ember.observer('error', function() {
 		if (this.error) {
 			let error = this.get('error.errors.firstObject.detail')
