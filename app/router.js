@@ -10,7 +10,6 @@ Router.map(function() {
 	this.route('login')
 	this.route('logout')
 
-	this.route('posts')
 	this.route('tags', function() {
 		this.route('new')
 		this.route('tag', {
@@ -19,7 +18,6 @@ Router.map(function() {
 	})
 	this.route('suggestions')
 	this.route('reports')
-	this.route('users')
 })
 
 export default Router
