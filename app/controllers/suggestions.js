@@ -19,13 +19,13 @@ export default Ember.Controller.extend({
 			}
 
 			Dialog.multiPrompt(`Add tag`, fields, [`Add`, `Cancel`])
-				.then(data => {
+				.then(data =>
 					this.store.createRecord('tag', {
 						name: data.name,
 						type: data.type,
 						order: data.order
 					}).save().then()
-				})
+				)
 		},
 		remove(suggestion) {
 			Dialog.confirm(`Are you sure?`)

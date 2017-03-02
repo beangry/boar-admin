@@ -47,12 +47,12 @@ export default Ember.Route.extend({
 
 						this.replaceWith('index')
 					})
-					.catch(error => {
+					.catch(error =>
 						controller.setProperties({
 							busy: false,
 							error
 						})
-					})
+					)
 			}
 		}
 	}
