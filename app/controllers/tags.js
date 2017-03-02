@@ -6,62 +6,86 @@ export default Ember.Controller.extend({
 
 	types: Ember.computed(function() {
 		return DS.PromiseArray.create({
-			promise: this.get('ajax').request('/tags/data')
+			promise: this.get('ajax').request('/data/tags')
+				.then(types =>
+					types.map(type => ({
+						label: type.name,
+						value: type.order
+					}))
+				)
 		})
 	}),
 
 	actions: {
-		addTag() {
-			let fields = {
-				name: {
-					label: `Name`,
-					value: `Apple`
-				},
-				type: {
-					label: `Type`,
-					value: `technology`
-				},
-				order: {
-					label: `Order`,
-					value: `3`
-				}
-			}
-
-			Dialog.multiPrompt(`Add tag`, fields, [`Add`, `Cancel`])
-				.then(data => {
-					this.store.createRecord('tag', {
-						name: data.name,
-						type: data.type,
-						order: data.order
-					}).save().then()
+		create() {
+			if (this.name && this.type && this.order) {
+				this.setProperties({
+					busy: true,
+					error: null
 				})
-		},
-		editTag(tag) {
-			let fields = {
-				name: {
-					label: `Name`,
-					value: tag.get('name')
-				},
-				type: {
-					label: `Type`,
-					value: tag.get('type')
-				},
-				order: {
-					label: `Order`,
-					value: tag.get('order')
-				}
-			}
 
-			Dialog.multiPrompt(`Edit tag`, fields, [`Save`, `Cancel`])
-				.then(data => {
-					tag.setProperties({
-						name: data.name,
-						type: data.type,
-						order: data.order
+				let data = {
+					name: this.name,
+					type: this.type,
+					order: this.order,
+					related: this.related
+				}
+
+				let tag = this.store.createRecord('tag', data)
+
+				tag.save()
+					.then(tag => {
+						this.setProperties({
+							busy: false,
+							name: null,
+							type: null,
+							order: null,
+							related: null
+						})
+
+						this.transitionToRoute('tags.tag', tag)
 					})
+					.catch(error => {
+						this.setProperties({
+							busy: false,
+							error
+						})
 
-					tag.save()
-				})
+						tag.destroyRecord()
+					})
+			}
+		},
+		select(type) {
+			this.setProperties({
+				type: type.label,
+				order: type.value
+			})
+		},
+		save() {
+			this.setProperties({
+				busy: true,
+				error: null
+			})
+
+			this.model.save()
+				.then(() =>
+					this.setProperties({
+						busy: false,
+						message: `Saved`
+					})
+				)
+				.catch(error =>
+					this.setProperties({
+						busy: false,
+						error
+					})
+				)
+		},
+		update(type) {
+			this.setProperties({
+				'model.type': type.label,
+				'model.order': type.value
+			})
 		}
 	}
 })

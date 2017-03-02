@@ -1,7 +1,9 @@
 import Ember from 'ember'
 
 export default Ember.Route.extend({
-	titleToken: 'Tags',
+	controllerName: 'tags',
+
+	titleToken: `Tags`,
 
 	model() {
 		return this.store.findAll('tag')

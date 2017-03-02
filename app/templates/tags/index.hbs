@@ -1,7 +1,7 @@
 <main>
 	<header>
 		<nav class="tools">
-			{{with-tooltip "Add" "bottom" true class="add" tagName="a" action='addTag'}}
+			{{link-to '' 'tags.new' class="add" tagName="a" data-tooltip="Add" data-tooltip-direction="bottom"}}
 		</nav>
 	</header>
 	<section class="data">
@@ -25,7 +25,7 @@
 							<td>{{tag.order}}</td>
 							<td class="controls">
 								<ul>
-									{{with-tooltip "Edit" "left" true class="edit" tagName="li" action=(action 'editTag' tag)}}
+									{{link-to '' 'tags.tag' tag class="edit" tagName="li" data-tooltip="Edit" data-tooltip-direction="left"}}
 								</ul>
 							</td>
 						</tr>
@@ -35,7 +35,7 @@
 		</div>
 		<aside>
 			{{#each types as |type|}}
-				<p>{{type.order}} {{type.type}}</p>
+				<p>{{type.value}} {{type.label}}</p>
 			{{/each}}
 		</aside>
 	</section>

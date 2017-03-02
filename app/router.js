@@ -11,7 +11,12 @@ Router.map(function() {
 	this.route('logout')
 
 	this.route('posts')
-	this.route('tags')
+	this.route('tags', function() {
+		this.route('new')
+		this.route('tag', {
+			path: ':id'
+		})
+	})
 	this.route('suggestions')
 	this.route('reports')
 	this.route('users')

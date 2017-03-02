@@ -1,0 +1,30 @@
+<main class="hero">
+	<form {{action 'save' on='submit'}}>
+		{{success-message message}}
+		{{error-message error}}
+		<label>
+			<strong>Name</strong>
+			{{input type="text" value=model.name placeholder="Name" required=true}}
+		</label>
+		<label>
+			<strong>Type</strong>
+			{{#auto-complete types model.type placeholder="Type" required=true as |type|}}
+				<li {{action 'update' type}}>
+					{{type.label}}
+					<span>{{type.value}}</span>
+				</li>
+			{{/auto-complete}}
+		</label>
+		<label>
+			<strong>Order</strong>
+			{{input type="number" value=model.order placeholder="Order" required=true}}
+		</label>
+		<label>
+			<strong>Related</strong>
+			{{textarea value=model.related placeholder="Related"}}
+		</label>
+		<p>
+			<button disabled={{busy}}>Save</button>
+		</p>
+	</form>
+</main>
