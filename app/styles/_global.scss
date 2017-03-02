@@ -36,6 +36,12 @@ form {
 			font-weight: 500;
 			margin-bottom: 1em;
 			text-transform: uppercase;
+
+			aside {
+				color: $colorLight;
+				display: inline-block;
+				margin-left: 0.5em;
+			}
 		}
 	}
 
