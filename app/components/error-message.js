@@ -4,10 +4,12 @@ const component = Ember.Component.extend({
 	classNames: ['error'],
 
 	messageChanged: Ember.observer('error', function() {
-		let message = this.get('error.errors.firstObject.detail.message')
+		let error = this.get('error.errors.firstObject.detail')
 
-		if (message) {
-			this.$().text(message)
+		if (error && error.message) {
+			this.$().text(error.message)
+		} else if (error) {
+			this.$().text(`Something went wrong`)
 		}
 	})
 })

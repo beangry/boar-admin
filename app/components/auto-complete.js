@@ -23,7 +23,7 @@ const component = Ember.Component.extend({
 
 		let value
 
-		if (this.value === undefined) {
+		if (this.value === undefined || this.value === null) {
 			value = ''
 		} else {
 			value = this.value.toLowerCase().trim()
