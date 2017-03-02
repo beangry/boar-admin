@@ -4,6 +4,9 @@ import DS from 'ember-data'
 export default Ember.Controller.extend({
 	ajax: Ember.inject.service(),
 
+	tags: Ember.computed.sort('model', 'sort'),
+	sort: ['order:asc', 'name:asc'],
+
 	types: Ember.computed(function() {
 		return DS.PromiseArray.create({
 			promise: this.get('ajax').request('/data/tags')
